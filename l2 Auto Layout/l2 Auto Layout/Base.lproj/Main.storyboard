@@ -15,57 +15,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLu-30-qSC" userLabel="ButtonFB">
-                                <rect key="frame" x="64.5" y="413.5" width="285" height="69"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Login with Facebook" backgroundImage="FB">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wmh-DF-DlW" userLabel="ButtonGoogle">
-                                <rect key="frame" x="64.5" y="492.5" width="285" height="69"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Login with Google" backgroundImage="Google">
-                                    <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4BV-rl-4vK" userLabel="ButtonEmail">
-                                <rect key="frame" x="64.5" y="571.5" width="285" height="69"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Login with Email" backgroundImage="Email">
-                                    <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Better Social" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJ3-El-92k">
-                                <rect key="frame" x="163" y="291.5" width="88.5" height="82"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="CY2-a2-ST6">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="xKY-RM-H5I">
+                                <rect key="frame" x="64.5" y="273" width="285" height="350"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Better Social" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJ3-El-92k">
+                                        <rect key="frame" x="98" y="0.0" width="89.5" height="83"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="shadowOffset" width="1" height="1"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RCt-xI-Vtg">
+                                        <rect key="frame" x="0.0" y="123" width="285" height="227"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLu-30-qSC" userLabel="ButtonFB">
+                                                <rect key="frame" x="0.0" y="0.0" width="285" height="69"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Login with Facebook" backgroundImage="FB">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wmh-DF-DlW" userLabel="ButtonGoogle">
+                                                <rect key="frame" x="0.0" y="79" width="285" height="69"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Login with Google" backgroundImage="Google">
+                                                    <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4BV-rl-4vK" userLabel="ButtonEmail">
+                                                <rect key="frame" x="0.0" y="158" width="285" height="69"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                <inset key="contentEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Login with Email" backgroundImage="Email">
+                                                    <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="4BV-rl-4vK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6Sf-ms-oM0"/>
-                            <constraint firstItem="4BV-rl-4vK" firstAttribute="top" secondItem="Wmh-DF-DlW" secondAttribute="bottom" constant="10" id="Ao5-8l-a7x"/>
-                            <constraint firstItem="dLu-30-qSC" firstAttribute="top" secondItem="JJ3-El-92k" secondAttribute="bottom" constant="40" id="Cpg-KP-G3S"/>
-                            <constraint firstItem="JJ3-El-92k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aX6-TE-qP6"/>
-                            <constraint firstItem="Wmh-DF-DlW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="flP-Pu-5Pt"/>
-                            <constraint firstItem="Wmh-DF-DlW" firstAttribute="top" secondItem="dLu-30-qSC" secondAttribute="bottom" constant="10" id="meP-lb-YSj"/>
-                            <constraint firstItem="dLu-30-qSC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="slw-Ls-JFZ"/>
-                            <constraint firstItem="dLu-30-qSC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uxq-u4-pJV"/>
+                            <constraint firstItem="CY2-a2-ST6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2lr-il-y2z"/>
+                            <constraint firstItem="xKY-RM-H5I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N0e-TW-2da"/>
+                            <constraint firstItem="CY2-a2-ST6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="eUB-7h-nT9"/>
+                            <constraint firstAttribute="trailing" secondItem="CY2-a2-ST6" secondAttribute="trailing" id="fUL-PX-p28"/>
+                            <constraint firstItem="xKY-RM-H5I" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jzG-kg-kwp"/>
+                            <constraint firstAttribute="bottom" secondItem="CY2-a2-ST6" secondAttribute="bottom" id="llX-DQ-b8s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" id="fpP-4r-61N">
+                    <rect key="frame" x="0.0" y="0.0" width="110" height="200"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <viewLayoutGuide key="safeArea" id="aVG-Zd-8z7"/>
+                </stackView>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Background" width="414" height="896"/>
         <image name="Email" width="285" height="69"/>
         <image name="FB" width="285" height="69"/>
         <image name="Google" width="285" height="69"/>
