@@ -23,8 +23,16 @@ class ViewController: UIViewController {
     
     @IBAction func dealButtonTapped(_ sender: Any) {
         
-        print("Deal tapped.")
+        var leftNum:Int
+        var rightNum:Int
         
+        repeat {
+            leftNum = Int.random(in: 2...14)
+            rightNum = Int.random(in: 2...14)
+        } while leftNum == rightNum
+        
+        leftImageView.image = UIImage(named: "card\(leftNum)")
+        rightImageView.image = UIImage(named: "card\(rightNum)")
     }
     
     
