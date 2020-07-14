@@ -20,7 +20,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tBJ-Fa-Slw">
-                                <rect key="frame" x="44" y="0.0" width="808" height="393"/>
+                                <rect key="frame" x="44" y="0.0" width="808" height="414"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yAS-dn-cHD">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -68,13 +69,16 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tBJ-Fa-Slw" secondAttribute="trailing" id="4Ow-lI-Lat"/>
                             <constraint firstAttribute="trailing" secondItem="dre-Pa-nYV" secondAttribute="trailing" id="PE5-zL-ree"/>
                             <constraint firstItem="tBJ-Fa-Slw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ahh-le-53c"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tBJ-Fa-Slw" secondAttribute="bottom" id="dMA-Hh-31C"/>
+                            <constraint firstAttribute="bottom" secondItem="tBJ-Fa-Slw" secondAttribute="bottom" id="dMA-Hh-31C"/>
                             <constraint firstItem="tBJ-Fa-Slw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kwc-gS-9Se"/>
                             <constraint firstAttribute="bottom" secondItem="dre-Pa-nYV" secondAttribute="bottom" id="vB7-uJ-Uvc"/>
                             <constraint firstItem="dre-Pa-nYV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="w0j-I6-qbI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="cardCollectionView" destination="tBJ-Fa-Slw" id="XWW-9G-dge"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
