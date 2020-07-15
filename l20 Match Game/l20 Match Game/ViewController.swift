@@ -21,7 +21,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         cards = model.getCards()
         
-        // Set the view controller as the datasource and delegate of the cardCollectionView
+        // Set the view controller as the datasource and delegate of the cardCollectionView:
         cardCollectionView.dataSource = self
         cardCollectionView.delegate = self
     }

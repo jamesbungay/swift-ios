@@ -11,6 +11,7 @@ import Foundation
 class CardModel {
     
     func getCards() -> [Card] {
+        
         var generatedCards = [Card]()
         var seenN = [Int]()
         
