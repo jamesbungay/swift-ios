@@ -15,6 +15,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     let model = CardModel()
     var cards = [Card]()
     
+    var prevFlippedCardIndex: IndexPath?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -40,9 +42,39 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? CardCollectionViewCell
-        cell?.flip()
+        if cell != nil && !cell!.card!.isFlipped && !cell!.card!.isMatched {
+            cell?.flip()
+            if prevFlippedCardIndex == nil {  // First card to be flipped, no match check needed
+                prevFlippedCardIndex = indexPath
+            } else {
+                checkForMatch(indexPath)
+            }
+        }
     }
 
+    // MARK: Game logic methods
+    // TODO: Move to CardModel class and call checkForMatch on a card object
+    
+    func checkForMatch(_ currFlippedCardIndex: IndexPath) {
+        
+        let cellOfPrevCard = cardCollectionView.cellForItem(at: prevFlippedCardIndex!) as? CardCollectionViewCell
+        let cellOfCurrCard = cardCollectionView.cellForItem(at: currFlippedCardIndex) as? CardCollectionViewCell
+        
+        if cards[prevFlippedCardIndex!.row].imageName == cards[currFlippedCardIndex.row].imageName {
+            // Match, mark as matched and remove cells of matched cards and reset prevFlippedCardIndex
+            cards[prevFlippedCardIndex!.row].isMatched = true
+            cards[currFlippedCardIndex.row].isMatched = true
+            cellOfPrevCard?.remove()
+            cellOfCurrCard?.remove()
+        } else {
+            // Not a match, flip cards back and reset prevFlippedCardIndex
+            cellOfPrevCard?.flip(delayIn: 0.5, mustFlipDown: true)
+            cellOfCurrCard?.flip(delayIn: 0.5, mustFlipDown: true)
+            cards[prevFlippedCardIndex!.row].isFlipped = false
+            cards[currFlippedCardIndex.row].isFlipped = false
+        }
+        prevFlippedCardIndex = nil
+    }
 
 }
 
