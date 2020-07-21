@@ -12,8 +12,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     @IBOutlet weak var cardCollectionView: UICollectionView!
     
+    @IBOutlet weak var timerLabel: UILabel!
+    
     let model = CardModel()
     var cards = [Card]()
+    
+    var gameTimer: Timer?
+    var msRem: Int = 60 * 1000
     
     var prevFlippedCardIndex: IndexPath?
     
@@ -26,7 +31,26 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // Set the view controller as the datasource and delegate of the cardCollectionView:
         cardCollectionView.dataSource = self
         cardCollectionView.delegate = self
+        
+        // Selector = Method to call when timer elapses; target = object to call said method on.
+        // In this case, self = ViewController
+        gameTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
+        RunLoop.main.add(gameTimer!, forMode: .common)
     }
+    
+    // MARK: - Timer Methods
+    
+    @objc func timerFired() {
+        msRem -= 10
+        let secRem: Double? = Double(msRem)/1000
+        timerLabel.text = String(format: "%.2f seconds remaining", secRem!)
+        if msRem <= 0 {
+            gameTimer?.invalidate()  // Stop timer from firing again
+            timerLabel.textColor = UIColor.red
+            checkForGameEnd()
+        }
+    }
+    
     
     // MARK: - Collection View Delegate Methods
     
@@ -42,7 +66,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? CardCollectionViewCell
-        if cell != nil && !cell!.card!.isFlipped && !cell!.card!.isMatched {
+        if msRem > 0 && cell != nil && !cell!.card!.isFlipped && !cell!.card!.isMatched {
             cell?.flip()
             if prevFlippedCardIndex == nil {  // First card to be flipped, no match check needed
                 prevFlippedCardIndex = indexPath
@@ -66,6 +90,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             cards[currFlippedCardIndex.row].isMatched = true
             cellOfPrevCard?.remove()
             cellOfCurrCard?.remove()
+            checkForGameEnd()
         } else {
             // Not a match, flip cards back and reset prevFlippedCardIndex
             cellOfPrevCard?.flip(delayIn: 0.5, mustFlipDown: true)
@@ -74,6 +99,40 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             cards[currFlippedCardIndex.row].isFlipped = false
         }
         prevFlippedCardIndex = nil
+    }
+    
+    func checkForGameEnd() {
+        var hasWon = true
+        for c in cards {
+            if !c.isMatched {
+                hasWon = false
+                break
+            }
+        }
+        if hasWon {
+            gameTimer?.invalidate()
+            showAlert(titleIn: "Congratulations!", msgIn: "You have won!")
+        } else if msRem <= 0 {
+            flipAllCardsUp()
+            showAlert(titleIn: "Bad luck!", msgIn: "You ran out of time.")
+        }
+    }
+    
+    func showAlert(titleIn:String, msgIn:String) {
+        let alert = UIAlertController(title: titleIn, message: msgIn, preferredStyle: .alert)
+        let alertOkAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(alertOkAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func flipAllCardsUp() {
+        for c in cardCollectionView.visibleCells as! [CardCollectionViewCell] {
+            UIView.transition(from: c.backImageView, to: c.frontImageView, duration: 0.3, options: [.showHideTransitionViews, .transitionFlipFromLeft], completion: nil)
+            c.card!.isFlipped = true
+        }
+        for c in cards {
+            c.isFlipped = true
+        }
     }
 
 }

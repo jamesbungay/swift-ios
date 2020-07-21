@@ -19,65 +19,83 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="dre-Pa-nYV">
                                 <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tBJ-Fa-Slw">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Cx0-Hn-KjT">
                                 <rect key="frame" x="44" y="0.0" width="808" height="414"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yAS-dn-cHD">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="76T-V1-r5a" customClass="CardCollectionViewCell" customModule="l20_Match_Game" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="158" height="224"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="K1L-cj-Ho9">
-                                            <rect key="frame" x="0.0" y="0.0" width="158" height="224"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QUc-IX-xOd" userLabel="ImgVwCardFront">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60.00 seconds remaining" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gE-nI-oZi">
+                                        <rect key="frame" x="306.5" y="0.0" width="195" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="195" id="Qpz-pq-FMk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tBJ-Fa-Slw">
+                                        <rect key="frame" x="8" y="30.5" width="792" height="383.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yAS-dn-cHD">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="76T-V1-r5a" customClass="CardCollectionViewCell" customModule="l20_Match_Game" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="158" height="224"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="K1L-cj-Ho9">
                                                     <rect key="frame" x="0.0" y="0.0" width="158" height="224"/>
-                                                </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="SGb-ic-rqJ" userLabel="ImgVwCardBack">
-                                                    <rect key="frame" x="0.0" y="0.0" width="158" height="224"/>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="SGb-ic-rqJ" secondAttribute="trailing" id="DqO-ra-Wk9"/>
-                                                <constraint firstAttribute="bottom" secondItem="QUc-IX-xOd" secondAttribute="bottom" id="GzX-gh-Ndk"/>
-                                                <constraint firstAttribute="bottom" secondItem="SGb-ic-rqJ" secondAttribute="bottom" id="QGS-sq-VU9"/>
-                                                <constraint firstItem="SGb-ic-rqJ" firstAttribute="leading" secondItem="K1L-cj-Ho9" secondAttribute="leading" id="iXQ-qs-fAh"/>
-                                                <constraint firstItem="QUc-IX-xOd" firstAttribute="leading" secondItem="K1L-cj-Ho9" secondAttribute="leading" id="lqh-Hh-KjA"/>
-                                                <constraint firstAttribute="trailing" secondItem="QUc-IX-xOd" secondAttribute="trailing" id="ndc-r1-Zd3"/>
-                                                <constraint firstItem="SGb-ic-rqJ" firstAttribute="top" secondItem="K1L-cj-Ho9" secondAttribute="top" id="oKz-2u-1Qk"/>
-                                                <constraint firstItem="QUc-IX-xOd" firstAttribute="top" secondItem="K1L-cj-Ho9" secondAttribute="top" id="vtZ-HO-LAN"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="158" height="224"/>
-                                        <connections>
-                                            <outlet property="backImageView" destination="SGb-ic-rqJ" id="B7s-Eo-MSu"/>
-                                            <outlet property="frontImageView" destination="QUc-IX-xOd" id="fCX-M2-jcv"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QUc-IX-xOd" userLabel="ImgVwCardFront">
+                                                            <rect key="frame" x="0.0" y="0.0" width="158" height="224"/>
+                                                        </imageView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="SGb-ic-rqJ" userLabel="ImgVwCardBack">
+                                                            <rect key="frame" x="0.0" y="0.0" width="158" height="224"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="SGb-ic-rqJ" secondAttribute="trailing" id="DqO-ra-Wk9"/>
+                                                        <constraint firstAttribute="bottom" secondItem="QUc-IX-xOd" secondAttribute="bottom" id="GzX-gh-Ndk"/>
+                                                        <constraint firstAttribute="bottom" secondItem="SGb-ic-rqJ" secondAttribute="bottom" id="QGS-sq-VU9"/>
+                                                        <constraint firstItem="SGb-ic-rqJ" firstAttribute="leading" secondItem="K1L-cj-Ho9" secondAttribute="leading" id="iXQ-qs-fAh"/>
+                                                        <constraint firstItem="QUc-IX-xOd" firstAttribute="leading" secondItem="K1L-cj-Ho9" secondAttribute="leading" id="lqh-Hh-KjA"/>
+                                                        <constraint firstAttribute="trailing" secondItem="QUc-IX-xOd" secondAttribute="trailing" id="ndc-r1-Zd3"/>
+                                                        <constraint firstItem="SGb-ic-rqJ" firstAttribute="top" secondItem="K1L-cj-Ho9" secondAttribute="top" id="oKz-2u-1Qk"/>
+                                                        <constraint firstItem="QUc-IX-xOd" firstAttribute="top" secondItem="K1L-cj-Ho9" secondAttribute="top" id="vtZ-HO-LAN"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="158" height="224"/>
+                                                <connections>
+                                                    <outlet property="backImageView" destination="SGb-ic-rqJ" id="B7s-Eo-MSu"/>
+                                                    <outlet property="frontImageView" destination="QUc-IX-xOd" id="fCX-M2-jcv"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="tBJ-Fa-Slw" firstAttribute="width" secondItem="Cx0-Hn-KjT" secondAttribute="width" multiplier="0.980198" id="LJx-Gh-tn9"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="dre-Pa-nYV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1pF-Jh-JqP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tBJ-Fa-Slw" secondAttribute="trailing" id="4Ow-lI-Lat"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cx0-Hn-KjT" secondAttribute="trailing" id="5cc-Cf-n5e"/>
                             <constraint firstAttribute="trailing" secondItem="dre-Pa-nYV" secondAttribute="trailing" id="PE5-zL-ree"/>
-                            <constraint firstItem="tBJ-Fa-Slw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ahh-le-53c"/>
-                            <constraint firstAttribute="bottom" secondItem="tBJ-Fa-Slw" secondAttribute="bottom" id="dMA-Hh-31C"/>
-                            <constraint firstItem="tBJ-Fa-Slw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kwc-gS-9Se"/>
+                            <constraint firstItem="Cx0-Hn-KjT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VD4-rZ-TGe"/>
+                            <constraint firstItem="Cx0-Hn-KjT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="upl-QT-ycB"/>
                             <constraint firstAttribute="bottom" secondItem="dre-Pa-nYV" secondAttribute="bottom" id="vB7-uJ-Uvc"/>
                             <constraint firstItem="dre-Pa-nYV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="w0j-I6-qbI"/>
+                            <constraint firstAttribute="bottom" secondItem="Cx0-Hn-KjT" secondAttribute="bottom" id="zmY-w1-E1Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="cardCollectionView" destination="tBJ-Fa-Slw" id="XWW-9G-dge"/>
+                        <outlet property="timerLabel" destination="2gE-nI-oZi" id="Tzi-pl-JfW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
