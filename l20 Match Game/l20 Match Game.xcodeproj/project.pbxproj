@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13F5886624BCD210000B07A5 /* l20 Match Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "l20 Match Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13F5886624BCD210000B07A5 /* Match Up!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Match Up!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F5886924BCD210000B07A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13F5886B24BCD210000B07A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		13F5886D24BCD210000B07A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		13F5886724BCD210000B07A5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13F5886624BCD210000B07A5 /* l20 Match Game.app */,
+				13F5886624BCD210000B07A5 /* Match Up!.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,7 +116,7 @@
 			);
 			name = "l20 Match Game";
 			productName = "l20 Match Game";
-			productReference = 13F5886624BCD210000B07A5 /* l20 Match Game.app */;
+			productReference = 13F5886624BCD210000B07A5 /* Match Up!.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -333,9 +333,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jamesbungay.l20-Match-Game";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Match Up!";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -352,9 +352,9 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jamesbungay.l20-Match-Game";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Match Up!";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
