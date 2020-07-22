@@ -22,6 +22,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     var prevFlippedCardIndex: IndexPath?
     
+    var soundPlayer = SoundManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -36,6 +38,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // In this case, self = ViewController
         gameTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
         RunLoop.main.add(gameTimer!, forMode: .common)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // Play shuffle card sound when the cards view first appears
+        soundPlayer.playSound(effect: .shuffle)
     }
     
     // MARK: - Timer Methods
@@ -70,6 +77,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             cell?.flip()
             if prevFlippedCardIndex == nil {  // First card to be flipped, no match check needed
                 prevFlippedCardIndex = indexPath
+                soundPlayer.playSound(effect: .flip)
             } else {
                 checkForMatch(indexPath)
             }
@@ -86,6 +94,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         if cards[prevFlippedCardIndex!.row].imageName == cards[currFlippedCardIndex.row].imageName {
             // Match, mark as matched and remove cells of matched cards and reset prevFlippedCardIndex
+            soundPlayer.playSound(effect: .match)
             cards[prevFlippedCardIndex!.row].isMatched = true
             cards[currFlippedCardIndex.row].isMatched = true
             cellOfPrevCard?.remove()
@@ -93,6 +102,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             checkForGameEnd()
         } else {
             // Not a match, flip cards back and reset prevFlippedCardIndex
+            soundPlayer.playSound(effect: .noMatch)
             cellOfPrevCard?.flip(delayIn: 0.5, mustFlipDown: true)
             cellOfCurrCard?.flip(delayIn: 0.5, mustFlipDown: true)
             cards[prevFlippedCardIndex!.row].isFlipped = false
